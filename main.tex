@@ -1,0 +1,75 @@
+%iffalse
+\let\negmedspace\undefined
+\let\negthickspace\undefined
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{txfonts}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{gensymb}
+\usepackage{comment}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{tkz-euclide} 
+\usepackage{listings}
+\usepackage{gvv}                                        
+%\def\inputGnumericTable{}                                 
+\usepackage[latin1]{inputenc}                                
+\usepackage{color}                                            
+\usepackage{array}                                            
+\usepackage{longtable}                                       
+\usepackage{calc}                                             
+\usepackage{multirow}                                         
+\usepackage{hhline}                                           
+\usepackage{ifthen}                                           
+\usepackage{lscape}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{float}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}[problem]{Definition}
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+
+% Marks the beginning of the document
+\begin{document}
+\bibliographystyle{IEEEtran}
+\vspace{3cm}
+
+\title{Ch.5-Mathematical Induction \\
+       I. Integer Value Correct Type}
+\author{AI24BTECH11016-Jakkula Adishesh Balaji$^{*}$
+}
+\maketitle
+\newpage
+\bigskip
+
+
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+
+1. The coefficients of three consecutive terms of $(1+x)^{n+5}$ are in the ratio 5:10:14. Then n=\\            (JEE Adv. 2013) \\ \\
+2. Let m be the smallest positive integer such that the coefficient of $x^{2}$ in the expansion of $(1+x)^{2} + (1+x)^{3} + ... + (1+x)^{49} + (1+x)^{50} + (1+mx)^{50}$ is (3n+1) $\comb{51}{3}$ for some positive integer n. Then the value of n is \\ (JEE Adv. 2016) \\ \\
+3. Let $\\ X= (\comb{10}{1})^{2}+2(\comb{10}{2})^{2} + 3(\comb{10}{3})^{2} + ... + 10(\comb{10}{10})^{2}$, where $\comb{10}{r} , r \in {1,2,...,10}$ denote binomial coefficients.\\ Then, the value of $\frac{1}{1430}$X is \\ (JEE Adv. 2018) \\ \\
+4. Suppose \\
+ \begin{vmatrix} $\sum\limits_{k=0}^{n}k$ & $\sum\limits_{k=0}^{n} k^{2} \comb{n}{k}$ \\ $\sum\limits_{k=0}^{n}\comb{n}{k} k$ & $\sum\limits_{k=0}^{n}\comb{n}{k} 3^{k}$
+\end{vmatrix}
+=0 \\	
+holds for some positive integer n. The $\sum\limits_{k=0}^{n} \frac{\comb{n}{k}}{k+1}$ equals \, \, \, (JEE Adv. 2019)
+
+\end{document}
