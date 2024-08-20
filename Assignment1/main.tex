@@ -1,0 +1,215 @@
+\let\negmedspace\undefined
+\let\negthickspace\undefined
+\documentclass[journal]{IEEEtran}
+\usepackage[a5paper, margin=10mm, onecolumn]{geometry}
+%\usepackage{lmodern} % Ensure lmodern is loaded for pdflatex
+\usepackage{tfrupee} % Include tfrupee package
+
+\setlength{\headheight}{1cm} % Set the height of the header box
+\setlength{\headsep}{0mm}     % Set the distance between the header box and the top of the text
+
+\usepackage{gvv-book}
+\usepackage{gvv}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{txfonts}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{gensymb}
+\usepackage{comment}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{tkz-euclide} 
+\usepackage{listings}
+% \usepackage{gvv}                                        
+\def\inputGnumericTable{}                                 
+\usepackage[latin1]{inputenc}                                
+\usepackage{color}                                            
+\usepackage{array}                                            
+\usepackage{longtable}                                       
+\usepackage{calc}                                             
+\usepackage{multirow}                                         
+\usepackage{hhline}                                           
+\usepackage{ifthen}                                           
+\usepackage{lscape}
+\begin{document}
+\bibliographystyle{IEEEtran}
+\title{Ch.5-Mathematical Induction and Binomial Theorem}
+\author{AI24BTECH11016-Jakkula Adishesh Balaji}
+{\let\newpage\relax\maketitle}
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+\setlength{\intextsep}{10pt} % Space between text and floats
+\numberwithin{equation}{enumi}
+\numberwithin{figure}{enumi}
+\renewcommand{\thetable}{\theenumi}
+Section-A | JEE Advanced/IIT-JEE\\
+ I.Integer Value Correct Type
+\begin{enumerate}
+        \item
+            The coefficients of three consecutive terms of $\brak{1+x}^{n+5}$ are in the ratio 5:10:14. Then n=       
+                     \hfill(JEE Adv. 2013)
+        \item
+            Let m be the smallest positive integer such that the coefficient of $x^{2}$ in the expansion of $\brak{1+x}^{2} + \brak{1+x}^{3} + ... + \brak{1+x}^{49} + \brak{1+x}^{50} + \brak{1+mx}^{50}$ is $\brak{3n+1} \comb{51}{3}$ for some positive integer n. Then the value of n is \\
+                     \hfill(JEE Adv. 2016)
+        \item
+            Let \\ $X= \brak{\comb{10}{1}^{2}}+2\brak{\comb{10}{2}^{2}} + 3\brak{\comb{10}{3}^{2}} + ... + 10\brak{\comb{10}{10}^{2}}$, where $\comb{10}{r} , r \in \cbrak{1,2,...,10}$ denote binomial coefficients. Then, the value of $\frac{1}{1430}$X is \rule{10mm}{0.15mm} \\
+                    \hfill(JEE Adv. 2018)
+        \item
+        Suppose \\
+           det$\mydet{ \sum\limits_{k=0}^{n}k & \sum\limits_{k=0}^{n} k^{2} \comb{n}{k} \\ \sum\limits_{k=0}^{n}\comb{n}{k} k & \sum\limits_{k=0}^{n}\comb{n}{k} 3^{k}}=0$ \\
+holds for some positive integer n. The $\sum\limits_{k=0}^{n} \frac{\comb{n}{k}}{k+1}$ equals \rule{10mm}{0.15mm} \\
+                    \hfill(JEE Adv. 2019)
+\end{enumerate}
+\newpage
+\title{Ch.18-Definite Integrals and Applications of Integrals}
+\maketitle
+\bigskip
+Section-B | JEE Main / AIEEE
+	\begin{enumerate}
+    [start=16]
+	      \item 
+		The area of the region bounded by the curves $y=\abs{x-2}, x=1, x=3$ and the x-axis is \quad \quad \quad
+        \quad \quad \hfill \brak{2004}
+		     \begin{enumerate}
+		              \item 4
+		              \item 2
+		              \item 3
+		              \item 1
+		     \end{enumerate}     
+	      \item
+           If $I_1=\int_{0}^{1} 2^{x^{2}} \,dx,I_2=\int_{0}^{1} 2^{x^{3}} \,dx,I_3=\int_{1}^{2} 2^{x^{2}} \,dx, I_4=\int_{1}^{2} 2^{x^{3}} \, dx
+          $ then 
+          \hfill \brak{2005} 
+          \begin{enumerate}
+                   \item $I_2>I_1$
+                   \item $I_1>I_2$
+                   \item $I_3=I_4$
+                   \item $I_3>I_4$
+          \end{enumerate}
+	      \item
+		      The area enclosed between the curve $y=\log_e\brak{x+e}$ and the coordinate  axes is 
+		     \hfill \brak{2005} 
+		     \begin{enumerate}
+		              \item 1
+		              \item 2
+		              \item 3
+		              \item 4
+		     \end{enumerate}
+	      \item 
+		      The parabolas $y^{2}=4x$ and $x^{2}=4y$ divide the square region bounded by the lines $x=4, y=4$ and the coordinate axes. If $S_1, S_2, S_3$ are respectively the areas of these parts numbered from top to bottom then $S_1:S_2:S_3$ is
+		     \hfill \brak{2005} 
+		     \begin{enumerate}
+		             \item 1:2:1
+		             \item 1:2:3
+		             \item 2:1:2
+		             \item 1:1:1
+		     \end{enumerate}  
+	     \item 
+		      Let $f\brak{x}$ be a non-negative continuous function such that the area bounded by the curve $y=f\brak{x}$, x-axis and the oordinates $x=\frac{\pi}{4}$ and $x=\beta>\frac{\pi}{4}$ is $\brak{\brak{\beta \sin\brak{\beta}+\frac{\pi}{4}\cos\brak{\beta}}}$. Then $f\brak{\frac{\pi}{2}}$ is
+		     \hfill \brak{2005}
+		     \begin{enumerate}
+		            \item $\frac{\pi}{4}+\sqrt{2}-1$
+		            \item $\frac{\pi}{2}-\sqrt{2}+1$
+		            \item $1-\frac{\pi}{4}-\sqrt{2}$
+		            \item $1-\frac{\pi}{4}+\sqrt{2}$
+		     \end{enumerate}
+	     \item 
+		      The value of $\int_{-\pi}^{\pi} \frac{\cos^{2}\brak{x}}{1+a^{x}}\,dx$, $a>0$, is
+		     \hfill \brak{2005}
+		     \begin{enumerate}
+		           \item $\pi$
+		           \item $\frac{\pi}{2}$
+		           \item $\frac{\pi}{a}$
+		           \item $2\pi$
+		     \end{enumerate}
+	     \item 
+		     The value of the integral $\int_{3}^{6} \frac{\sqrt{x}}{\sqrt{9-x}+\sqrt{x}} \,dx$ is \quad \quad \quad
+       \quad \quad
+		     \hfill \brak{2005} 
+		    \begin{enumerate}
+		     
+		          \item $\frac{1}{2}$
+		          \item $\frac{3}{2}$
+		          \item 2
+		          \item 1
+		    \end{enumerate}
+	     \item 
+		     $\int_{0}^{\pi} xf\brak{\sin x} \,dx$ is equal to 
+		    \hfill \brak{2006}
+		    \begin{enumerate}
+		    
+		         \item $\pi \int_{0}^{\pi} f\brak{\cos x} \quad dx$
+		         \item $\pi \int_{0}^{\pi} f\brak{\sin x} \quad dx$
+		         \item $\frac{\pi}{2} \int_{0}^{\frac{\pi}{2}} f\brak{\sin x} \quad dx$
+		         \item $\pi \int_{0}^{\frac{\pi}{2}} f\brak{\cos x} \quad dx$
+		    \end{enumerate}
+	     \item
+		    $\int_{\frac{-3\pi}{2}}^{\frac{-\pi}{2}} \sbrak{\brak{x+\pi}^{3}+\cos^{2}\brak{x+3\pi}} \,dx$ is equal to
+		    \hfill \brak{2006} 
+		   \begin{enumerate}
+		        \item $\frac{\pi^{4}}{32}$
+		        \item $\frac{\pi^{4}}{32}+\frac{\pi}{2}$
+		        \item $\frac{\pi}{2}$
+		        \item $\frac{\pi}{4}-1$
+		   \end{enumerate}
+	    \item
+		    The value of $\int_{1}^{a} [x]f^{'}(x) \,dx$, $a>1$ where [x] denotes the greatest integer not exceeding x is
+		   \hfill \brak{2006}
+		   \begin{enumerate}
+		       \item $af\brak{a}-\cbrak{f\brak{1}+f\brak{2}+...f\brak{\sbrak{a}}}$
+		       \item $\sbrak{a}f\brak{a}-\cbrak{f\brak{1}+f\brak{2}+...f\brak{\sbrak{a}}}$
+		       \item $\sbrak{a}f\brak{\sbrak{a}}-\cbrak{f\brak{1}+f\brak{2}+...f\brak{a}}$
+		       \item $af\brak{\sbrak{a}}-\cbrak{f\brak{1}+f\brak{2}+...f\brak{a}}$
+		   \end{enumerate}
+	   \item 
+		    Let $F\brak{x}=f\brak{x}+f\brak{\frac{1}{x}}$, where $f\brak{x}=\int_{1}^{x} \frac{logt}{1+t} \,dt$, Then $F\brak{e}$ equals
+		    \hfill \brak{2006} 
+		   \begin{enumerate}
+		      \item 1
+		      \item 2
+		      \item $\frac{1}{2}$
+		      \item 0
+		   \end{enumerate}  
+	   \item 
+    		    The solution for x of the equation $\int_{\sqrt2}^{x} \frac{1}{t\sqrt{t^{2}-1}} \,dt$ is
+    		   \hfill \brak{2007}
+		   \begin{enumerate}
+		      \item $\frac{\sqrt{3}}{2}$
+		      \item $2\sqrt{2}$
+		      \item 2
+		      \item none
+		   \end{enumerate} 
+	   \item 
+		  The area enclosed between the curves $y^{2}=x$ and $y=|x|$ is
+		 \hfill \brak{2007}
+		 \begin{enumerate}
+		     \item $\frac{1}{6}$
+		     \item $\frac{1}{3}$
+		     \item $\frac{2}{3}$
+		     \item 1
+		 \end{enumerate}
+	   \item 
+		 Let $I=\int_{0}^{1} \frac{\sin x}{\sqrt{x}} \,dx$ and $J=\int_{0}^{1} \frac{\cos x}{\sqrt{x}} \,dx$. Then which one of the following is true?
+		\hfill \brak{2007} 
+		\begin{enumerate}
+		    \item $I>\frac{2}{3}$ and $J>2$
+		    \item $I<\frac{2}{3}$ and $J<2$
+		    \item $I<\frac{2}{3}$ and $J>2$
+		    \item $I>\frac{2}{3}$ and $J<2$
+		\end{enumerate}
+	   \item 
+		 The area of the plane region bounded by the curves $x+2y^{2}=0$ and $x+3y^{2}=1$ is equal to  
+		\hfill \brak{2008}
+		\begin{enumerate}
+		   \item $\frac{5}{3}$
+		   \item $\frac{1}{3}$
+		   \item $\frac{2}{3}$
+		   \item $\frac{4}{3}$
+		\end{enumerate}
+	\end{enumerate}
+	\end{document}
