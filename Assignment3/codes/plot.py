@@ -8,25 +8,25 @@ import matplotlib.image as mpimg
 from funcs import line_gen
 import params
 
-B1 = np.array(([10 , -9]))
-A = np.array(([2, -3]))
-B2 = np.array(([10, 3]))
+Q1 = np.array(([10 , -9]))
+P = np.array(([2, -3]))
+Q2 = np.array(([10, 3]))
 
-x_AB1 = line_gen(A,B1)
-x_AB2 = line_gen(A,B2)
+x_PQ1 = line_gen(P,Q1)
+x_PQ2 = line_gen(P,Q2)
 
 plt.figure(figsize=(8, 6))
 
-plt.plot(x_AB1[0,:],x_AB1[1,:],label='$AB1$')
-plt.plot(x_AB2[0,:],x_AB2[1,:],label='$AB2$')
+plt.plot(x_PQ1[0,:],x_PQ1[1,:],label='$PQ1$')
+plt.plot(x_PQ2[0,:],x_PQ2[1,:],label='$PQ2$')
 
 
-plt.text(B1[0], B1[1], 'B1(10,-9)')
-plt.text(A[0], A[1], 'A(2,-3)')
-plt.text(B2[0], B2[1], 'B(10,3)')
+plt.text(Q1[0], Q1[1], 'Q1(10,-9)')
+plt.text(P[0], P[1], 'P(2,-3)')
+plt.text(Q2[0], Q2[1], 'Q2(10,3)')
 plt.xlabel('X-axis')
 plt.ylabel('Y-axis')
-plt.title('Plot of the two possible points B1 and B2 which are 10 units away from A')
+plt.title('Plot of the two possible points Q1 and Q2 which are 10 units away from P')
 plt.legend()
 plt.grid(True)
 
