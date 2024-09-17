@@ -25,7 +25,7 @@ plt.text(Q1[0], Q1[1], 'Q1(10,-9)')
 plt.text(P[0], P[1], 'P(2,-3)')
 plt.text(Q2[0], Q2[1], 'Q2(10,3)')
 plt.xlabel('X-axis')
-plt.ylabel('Y-axis')
+plt.ylabel('Y-axis')www
 plt.title('Plot of the two possible points Q1 and Q2 which are 10 units away from P')
 plt.legend()
 plt.grid(True)
