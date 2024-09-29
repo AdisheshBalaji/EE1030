@@ -35,12 +35,12 @@
 \numberwithin{table}{section} % Use section numbering for tables
 
 \title{4-4.2-21}
-\author{AI24BTECH11016-Jakkula Adishesh Balaji}
+\author{AI24BTECH11016 - Jakkula Adishesh Balaji}
 \maketitle
 
 \section*{\textbf{Linear Forms (Parameters)}}
 \parindent 0pt
-Question: \\
+\textbf{Question:} \\
 \textbf{4.2.21} Find the direction and normal vectors of the line \( F = \frac{9}{5}C + 32 \).
 
 \textbf{Solution:}
@@ -50,23 +50,24 @@ Question: \\
     % Assuming the table.tex file exists
     \input{tables/table.tex} 
     \caption{Parameters Used}
-    \label{tab1-1.9-6}
+    \label{tab:1-1.9-6}
 \end{table}
 
 The direction vector can be found as follows: \\
-The equation of the line is given by
+The equation of the line is given by:
 \begin{align}
 	F &= \frac{9}{5}C + 32 \\
-	\implies \begin{pmatrix} C \\ F \end{pmatrix} &= \begin{pmatrix} C \\ \frac{9}{5}C + 32 \end{pmatrix} = C\begin{pmatrix} 1 \\ \frac{9}{5} \end{pmatrix} + \begin{pmatrix} 0 \\ 32 \end{pmatrix}
+	\implies \begin{pmatrix} C \\ F \end{pmatrix} &= \begin{pmatrix} C \\ \frac{9}{5}C + 32 \end{pmatrix} = C \begin{pmatrix} 1 \\ \frac{9}{5} \end{pmatrix} + \begin{pmatrix} 0 \\ 32 \end{pmatrix}
 \end{align}
-yielding
-\[
-	\vec{x} = \vec{h} + k\vec{m}
-\]
-where \(\vec{h}\) is any point on the line and 
-\[
-	\vec{m} = \begin{pmatrix} 1 \\ \frac{9}{5} \end{pmatrix}
-\]
+
+This yields:
+\begin{align}
+	\vec{x} &= \vec{h} + k\vec{m}
+\end{align}
+where \(\vec{h}\) is any point on the line, and 
+\begin{align}
+    \vec{m} &= \begin{pmatrix} 1 \\ \frac{9}{5} \end{pmatrix}
+\end{align}
 
 The normal vector can be found as follows:
 \begin{align}
@@ -79,7 +80,7 @@ The normal vector can be found as follows:
     \centering
     \includegraphics[width = 1\linewidth]{figs/fig.png}
     \caption{Graphical representation of the vectors.}
-    \label{stemplot}
+    \label{fig:stemplot}
 \end{figure}
 
 \end{document}
