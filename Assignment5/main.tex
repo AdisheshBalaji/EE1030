@@ -41,6 +41,22 @@
 \parindent 0pt
 \textbf{Question:} \\
 \textbf{9.2.13} Find the area of the region bounded by the ellipse $\frac{x^{2}}{16} + \frac{y^{2}}{9} = 1$\\
+\solution
+Equation of curve in Matrix form is \\
+\begin{align}
+\vec{x}^\top\vec{V}\vec{x} + 2\vec{u}^\top\vec{x} + f = 0
+\end{align}
+For the given ellipse, The values of $\vec{V}$,$\vec{u}$,$f$ are
+\begin{align}
+\vec{V}&=\begin{pmatrix}9 & 0\\0 & 16\end{pmatrix}\\
+\vec{u}&=\begin{pmatrix}0\\0\\\end{pmatrix} \\
+\vec{f}&=0
+\end{align}
+The area under the curve is given by \\
+\begin{align}
+A &= 4 \int_0^4 3 \sqrt{1 - \frac{x^2}{16}} \, dx \\
+A &= 12\pi \\
+\end{align}
 \begin{table}[h!]    	
     \centering
     % Assuming the table.tex file exists
@@ -48,13 +64,12 @@
     \caption{Parameters Used}
     \label{tab:1-1.9-6}
 \end{table}
-\textbf{Solution:}
-The area under the curve is given by \\
-\begin{align}
-A &= 4 \int_0^4 b \sqrt{1 - \frac{x^2}{a^2}} \, dx \\
-\implies &= 4 \int_0^4 3 \sqrt{1 - \frac{x^2}{16}} \, dx \\
-A &= 12\pi
-\end{align}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width = 1\linewidth]{figs/Figure_1.png}
+    \caption{Plot of ellipse}
+    \label{fig:stemplot}
+\end{figure}
 \end{document}
 
 
