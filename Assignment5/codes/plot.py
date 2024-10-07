@@ -16,8 +16,8 @@ a = 4  # semi-major axis
 b = 3  # semi-minor axis
 center_x = 0
 center_y = 0
-vertices = [(0, -3), (0, 3)]  # Minor axis points
-covertices = [(4, 0), (-4, 0)]  # Major axis points
+covertices = [(0, -3), (0, 3)]  # Minor axis points
+vertices = [(4, 0), (-4, 0)]  # Major axis points
 center = (0, 0)
 
 # Plot the ellipse
