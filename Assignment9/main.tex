@@ -1,0 +1,205 @@
+\documentclass[journal]{IEEEtran}
+\usepackage[a5paper, margin=10mm, onecolumn]{geometry}
+\usepackage{tfrupee} % Include tfrupee package
+
+\setlength{\headheight}{1cm} % Set the height of the header box
+\setlength{\headsep}{0mm}     % Set the distance between the header box and the top of the text
+
+\usepackage{gvv-book}
+\usepackage{gvv}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{txfonts}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{gensymb}
+\usepackage{comment}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{tkz-euclide}
+\usepackage{longtable}
+\usepackage{lscape}
+
+\def\inputGnumericTable{}                                 
+\usepackage[latin1]{inputenc}                                
+\usepackage{color}                                            
+\usepackage{array}                                            
+\usepackage{calc}                                             
+\usepackage{multirow}                                         
+\usepackage{hhline}                                           
+\usepackage{ifthen}
+
+\begin{document}
+\bibliographystyle{IEEEtran}
+\title{2007-GATE-CE}
+\author{AI24BTECH11016 - Jakkula Adishesh Balaji}
+{\let\newpage\relax\maketitle}
+
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+\setlength{\intextsep}{10pt} % Space between text and floats
+\numberwithin{equation}{enumi}
+\numberwithin{figure}{enumi}
+\section{1-17}
+\begin{enumerate}
+	\item
+	The minimum and the maximum eigen values of the matrix $\myvec{1 & 1 & 3 \\ 1 & 5 & 1 \\ 3 & 1 & 1}$ are -2 and 6, respectively. What is the other eigen value?
+		\begin{enumerate}
+			\item 5
+			\item 3
+			\item 1
+			\item -1
+		\end{enumerate}
+	\item
+	The degree of the differential equation $\frac{d^{2}x}{d{t}^2} + 2x^3 = 0$ is
+		\begin{enumerate}
+			\item 0
+			\item 1
+			\item 2
+			\item 3
+		\end{enumerate}
+	\item
+	The solution for the differential equation $\frac{dy}{dx} = x^{2}y$ with the condition that $y=1$ at $x=0$ is 
+		\begin{enumerate}
+			\item $y=e^{\frac{1}{2x}}$
+			\item $ln\brak{y} = \frac{x^3}{3} + 4$
+			\item $ln\brak{y} = \frac{x^2}{2}$
+			\item $y = e^{\frac{x^3}{3}}$
+		\end{enumerate}
+	\item
+	An axially loaded bar is subjected to a normal stress of 173 MPa. The shear stress in the bar is
+		\begin{enumerate}
+			\item 75 MPa
+			\item 86.5 MPa
+			\item 100 MPa
+			\item 122.3 MPa
+		\end{enumerate}
+	\item
+	A steel column, pinned at both ends, has a buckling load of 200 kN. If the column is restrained against lateral movement at its mid-height, its buckling load will be 
+		\begin{enumerate}
+			\item 200 kN
+			\item 283 kN
+			\item 400 kN
+			\item 800 kN
+		\end{enumerate}
+	\item
+	The stiffness coefficient $k_{ij}$ indicates
+		\begin{enumerate}
+			\item force at $i$ due to a unit deformation at $j$
+			\item deformation at $j$ due to a unit force at $i$
+			\item deformation at $i$ due to a unit force at $j$
+			\item force at $j$ due to a unit deformation at $i$
+		\end{enumerate}
+	\item
+	For an isotropic material, the relationship between the Young's modulus \brak{$E$}, shear modulus \brak{$\mu$} is given by 
+		\begin{enumerate}
+			\item $G = \frac{E}{2\brak{1+\mu}}$
+			\item $E = \frac{G}{2\brak{1+\mu}}$
+			\item $G = \frac{E}{1 + 2\mu}$
+			\item $G = \frac{E}{2\brak{1-\mu}}$
+		\end{enumerate}
+	\item
+	A clay soil sample is tested in a triaxial apparatus in consolidated-drained conditions at a cell pressure of 100 $\frac{kN}{m^2}$. What will be the pore water pressure at a deviator stress of 40 $\frac{kN}{m^2}$
+		\begin{enumerate}
+			\item 0 $\frac{kN}{m^2}$
+			\item 20 $\frac{kN}{m^2}$
+			\item 40 $\frac{kN}{m^2}$
+			\item 60 $\frac{kN}{m^2}$
+		\end{enumerate}
+	\item
+	The number of blows observed in a Standard Penetration Test (STP) for different penetration depths are given as follows: \\
+	\begin{tabular}{|c|c|}
+	\hline
+	Penetration of Sampler & Number of Blows \\
+	\hline
+	0-150 mm & 6 \\
+	150-300 mm & 8 \\
+	300-450 mm & 10 \\
+	\hline
+	\end{tabular}
+	The observed $N$ value is
+		\begin{enumerate}
+			\item 8
+			\item 14
+			\item 18
+			\item 24
+		\end{enumerate}
+	\item
+	The vertical stress at some depth below the corner of a 2m x 3m rectangular footing due to a certain load intensity is 100 $\frac{kN}{m^2}$. What will be the vertical stress in $\frac{kN}{m^2}$ below the centre of a 4m x 6m rectangular footing at the same depth and same load intensity?
+		\begin{enumerate}
+			\item 25
+			\item 100
+			\item 200
+			\item 400
+		\end{enumerate}
+	\item
+	There is a free overfall at the end of a long open channel. For a given flow rate, the critical depth is less than the normal depth. What gradually varied flow profile will occur in the channel for this flow rate?
+		\begin{enumerate}
+			\item $M_1$
+			\item $M_2$
+			\item $M_3$
+			\item $S_1$
+		\end{enumerate}
+	\item
+	The consecutive use of water for a crop during a particular stage of growth is 2.0 mm/day. The maximum depth of available water in the root zone is 60 mm. Irrigation is required when the amount of available water is 50 \% of the maximum available water in the root zone. Frequency of irrigation should be
+		\begin{enumerate}
+			\item 10 days
+			\item 15 days
+			\item 20 days
+			\item 25 days
+		\end{enumerate}
+	\item
+	As per the Lacey's method for design of alluvial channels, identify the \textbf{TRUE} statement from the following:
+		\begin{enumerate}
+			\item Wetted perimeter increases with an increase in design discharge
+			\item Hydraulic radius increases with an increase in silt factor
+			\item Wetted perimeter decreases with an increase in design discharge
+			\item Wetted perimeter increases with an increase in silt factor
+		\end{enumerate}
+	\item
+	At two points 1 and 2 in a pipeline the velocities are $V$ and $2V$, respectively. Both the points are at the same elevation. The fluid density is $\rho$. The flow can be assumed to be incompressible, inviscid, steady and irrotational. The difference is pressures $P_1$ and $P_2$ at points 1 and 2 is
+		\begin{enumerate}
+			\item $0.5\rho V^2$
+			\item $1.5\rho V^2$
+			\item $2\rho V^2$
+			\item $3\rho V^2$
+		\end{enumerate}
+	\item
+	The presence of hardness in excess of permissible limit causes 
+		\begin{enumerate}
+			\item cardio vascular problems
+			\item skin discolouration
+			\item calcium deficiency
+			\item increased laundry expenses
+		\end{enumerate}
+	\item
+	The dispersion of pollutants in atmosphere is maximum when
+		\begin{enumerate}
+			\item environmental lapse rate is greater than adiabatic lapse rate.
+			\item environmental lapse rate is less than adiabatic lapse rate.
+			\item environmental lapse rate is equal to adiabatic lapse rate.
+			\item maximum mixing depth is equal to zero.
+		\end{enumerate}
+	\item 
+	The alkalinity and the hardness of a water sample are 250 mg/L and 350 mg/L as $\text{CaCO}_3$, respectively. The water has 
+		\begin{enumerate}
+			\item 350 mg/L carbonate hardness and zero non-carbonate hardness.
+			\item 250 mg/L carbonate hardness and zero non-carbonate hardness.
+			\item 250 mg/L carbonate hardness and 350 mg/L non-carbonate hardness.
+			\item 350 mg/L carbonate hardness and 100 mg/L non-carbonate hardness.
+		\end{enumerate}
+	
+	
+
+
+
+
+
+
+
+\end{enumerate}
+\end{document}
