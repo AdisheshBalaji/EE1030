@@ -1,0 +1,173 @@
+\documentclass[journal]{IEEEtran}
+\usepackage[a5paper, margin=10mm, onecolumn]{geometry}
+\usepackage{tfrupee} % Include tfrupee package
+
+\setlength{\headheight}{1cm} % Set the height of the header box
+\setlength{\headsep}{0mm}     % Set the distance between the header box and the top of the text
+
+\usepackage{gvv-book}
+\usepackage{gvv}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{txfonts}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{gensymb}
+\usepackage{comment}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{tkz-euclide}
+\usepackage{longtable}
+\usepackage{lscape}
+
+\def\inputGnumericTable{}                                 
+\usepackage[latin1]{inputenc}                                
+\usepackage{color}                                            
+\usepackage{array}                                            
+\usepackage{calc}                                             
+\usepackage{multirow}                                         
+\usepackage{hhline}                                           
+\usepackage{ifthen}
+\usepackage{tikz}
+
+\begin{document}
+\bibliographystyle{IEEEtran}
+\title{2009-GATE-AE}
+\author{AI24BTECH11016 - Jakkula Adishesh Balaji}
+{\let\newpage\relax\maketitle}
+
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+\setlength{\intextsep}{10pt} % Space between text and floats
+\numberwithin{equation}{enumi}
+\numberwithin{figure}{enumi}
+\section{25-36}
+\begin{enumerate}
+	\item
+	An ideal ramjet is flying at an altitude of $10 km$ with a velocity of $1 km/s$. The ambient pressure is $0.25 bar$ and temperature is $225 K$. The exhaust gases from the engine are optimally expanded and leave the nozzle at $900 K$. If the specific heat ration $\brak{\gamma}$ remains constant, the specific thrust developed by the engine is approximately
+		\begin{enumerate}
+			\item $1000 N-s/kg$
+			\item $2000 N-s/kg$
+			\item $500 N-s/kg$
+			\item $4000 N-s/kg$
+		\end{enumerate}
+	\item
+	A combat aircraft engine is equipped with an afterburner followed by a variable area convergent nozzle (operating with the nozzle choked). The exhaust gas temperature is $750 K$ when afterburner is off and $3000 K$ when it is on. When the afterburner is turned on (assuming the total pressure remains the same, the mass of fuel added in the afterburner is negligible i.e., the mass flow rate remains the same, and the specific heat ratio $\brak{\gamma}$ reamins constant), approximately by what factor must the nozzle area be changed ?
+		\begin{enumerate}
+			\item 0.5
+			\item 4
+			\item 1
+			\item 2
+		\end{enumerate}
+	\item
+	An airplane flying at $100 m/s$ is pitching at the rate of $0.2 deg/s$. Due to this pitching, the horizontal tail surface located 4 metres behind the centre-of-mass of the airplane will experience a change in angle of attack, which is
+		\begin{enumerate}
+			\item $0.01 deg$
+			\item $0.008 deg$
+			\item $0.04 deg$
+			\item $0.004 deg$
+		\end{enumerate}
+	\item 
+	The contribution of the horizontal tail to the pitching moment coefficient about the center of gravity $\brak{C_{m_{CG}}}$ of an aircraft is given by $C_{m_{tail}} = 0.2 - 0.0215\alpha$, where $\alpha$ is the angle of attack of the aircraft. The contribution of the tail to the aircraft longitudinal stability
+		\begin{enumerate}
+			\item is stabilizing
+			\item is destabilizing
+			\item is nil
+			\item cannot be determined from the given information
+		\end{enumerate}
+	\item
+	The linearized dynamics of an aircraft (which has no large rotating components) in straight and level flight is governed by the equations
+	\begin{align}
+		\frac{d\bar{x}}{dt} &= \myvec{\sbrak{A} & \sbrak{B} \\ \sbrak{C} & \sbrak{D}}
+	\end{align}
+	where $\bar{x} = \myvec{u & w & q & \theta & v & p & r & \psi}^{T}$, $\myvec{}^{T}$ represents the transpose of a matrix, $\sbrak{A}$, $\sbrak{B}$, $\sbrak{C}$ and $\sbrak{D}$ are $4 \times 4$ matrices and $\sbrak{0}$ is the $4 \times 4$ null matrix. Which of the following is true?
+		\begin{enumerate}
+			\item $\sbrak{A} \neq \sbrak{0}$; $\sbrak{B} \neq \sbrak{0}; \sbrak{C} = \sbrak{0}; \sbrak{D} \neq \sbrak{0}$
+			\item $\sbrak{A} = \sbrak{0}$; $\sbrak{B} \neq \sbrak{0}; \sbrak{C} \neq \sbrak{0}; \sbrak{D} = \sbrak{0}$
+			\item $\sbrak{A} \neq \sbrak{0}$; $\sbrak{B} = \sbrak{0}; \sbrak{C} = \sbrak{0}; \sbrak{D} \neq \sbrak{0}$
+			\item $\sbrak{A} \neq \sbrak{0}$; $\sbrak{B} = \sbrak{0}; \sbrak{C} \neq \sbrak{0}; \sbrak{D} = \sbrak{0}$
+		\end{enumerate}
+	\item
+	The velocity vector of an aircraft along its body-fixed axis is given by $\bar{V} = \myvec{u \\ v \\ w}$. If $V$ is the magnitude of $\bar{V}$, $\alpha$ is the angle of attack and $\beta$ is the angle of sideslip, which of the following set of relations is correct?
+		\begin{enumerate}
+			\item $u = V\sin{\beta}\cos{\alpha}; v = V\sin{\beta}; w = V\cos{\beta}\sin{\alpha}$
+			\item $u = V\cos{\beta}\cos{\alpha}; v = V\cos{\beta}; w = V\cos{\beta}\sin{\alpha}$
+			\item $u = V\cos{\beta}\cos{\alpha}; v = V\sin{\beta}; w = V\sin{\beta}\sin{\alpha}$
+			\item $u = V\cos{\beta}\cos{\alpha}; v = V\sin{\beta}; w = V\cos{\beta}\sin{\alpha}$
+		\end{enumerate}
+	\item
+	An aircraft of mass $2500 kg$ in straight and level flight at a constant speed of $100 m/s$ has available excess power of $1.0 \times 10^6 W$. The steady rate of climb it can attain at that speed is 
+		\begin{enumerate}
+			\item $100 m/s$
+			\item $60 m/s$
+			\item $40 m/s$
+			\item $20 m/s$
+		\end{enumerate}
+	\item
+	The acceleration due to gravity on the surface of Mars is 0.385 times that on earth, and the diameter of Mars is 0.532 times that of earth. The ratio of the escape velocity from the surface of Mars to the escape velocity from the surface of earth is approximately
+		\begin{enumerate}
+			\item 0.453
+			\item 0.205
+			\item 0.851
+			\item 0.724
+		\end{enumerate}
+	\item
+	Which of the following statements are true for flow across a stationary normal shock ? \\
+	P.      Stagnation temperature stays constant \\
+	Q.	Stagnation pressure decreases \\
+	R.	Entropy increases \\
+	S.	Stagnation pressure increases \\
+	T.	Stagnation temperature increases
+		\begin{enumerate}
+			\item P, Q, R
+			\item Q, R, S
+			\item R, S, T
+			\item S, T, P
+		\end{enumerate}
+	\item
+	A model airfoil in a wind tunnel that is operating at $50 m/s$ develops a minimum pressure co-efficient of -6.29 at some point on its upper surface. The local airspeed at that point is 
+		\begin{enumerate}
+			\item $50 m/s$
+			\item $125 m/s$
+			\item $135 m/s$
+			\item $150 m/s$
+		\end{enumerate}
+	\item
+	A symmetrical airfoil section produces a lift coefficient of 0.53 at an angle of attack 5 degrees measured from its chord line. An untwisted wing of elliptical platform and aspect ratio 6 is made of this airfoil. At an angle of attack of 5 degrees relative to its chordal plane, this wing would produce a lift coefficient of
+		\begin{enumerate}
+			\item 0.53
+			\item 0.48
+			\item 0.40
+			\item 0.36
+		\end{enumerate}
+	\item
+	Consider an ideal flow of density $\rho$ through a variable area duct as shown in the figure below:  \\
+	
+	
+	
+	Let the cross-sectional areas at sections \brak{1} and \brak{2} be $A_1$ and $A_2$ respectively. The velocity measured at section \brak{1} using a Pitot static probe is $V_1$. Then the static pressure drop $p_2 - p_1$ is
+		\begin{figure}[h!]
+    			\centering
+    			\input{figs/figs.tex}
+    			\caption{}
+    			\label{36}
+		\end{figure}
+
+		\begin{enumerate}
+			\item $-\frac{1}{2}\rho\brak{1-\frac{{A_{1}}^{2}}{{A_{2}}^{2}}}{V_1}^{2}$
+			\item $\frac{1}{2}\rho\brak{1-\frac{{A_{1}}^{2}}{{A_{2}}^{2}}}{V_1}^{2}$
+			\item $-\frac{1}{2}\rho\brak{1-\frac{{A_{1}}^{2}}{{A_{2}}^{2}}}{V_1}^{2}$
+			\item $-\frac{1}{2}\rho\brak{1-\frac{{A_{1}}^{2}}{{A_{2}}^{2}}}{V_1}^{2}$
+		\end{enumerate}
+	
+			
+			
+			
+			
+			
+\end{enumerate}
+\end{document}
