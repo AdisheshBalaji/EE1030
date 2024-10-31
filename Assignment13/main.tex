@@ -1,0 +1,169 @@
+\documentclass[journal]{IEEEtran}
+\usepackage[a5paper, margin=10mm, onecolumn]{geometry}
+\usepackage{tfrupee} % Include tfrupee package
+
+\setlength{\headheight}{1cm} % Set the height of the header box
+\setlength{\headsep}{0mm}     % Set the distance between the header box and the top of the text
+
+\usepackage{gvv-book}
+\usepackage{gvv}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{txfonts}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{gensymb}
+\usepackage{comment}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{tkz-euclide}
+\usepackage{longtable}
+\usepackage{lscape}
+
+\def\inputGnumericTable{}                                 
+\usepackage[latin1]{inputenc}                                
+\usepackage{color}                                            
+\usepackage{array}                                            
+\usepackage{calc}                                             
+\usepackage{multirow}                                         
+\usepackage{hhline}                                           
+\usepackage{ifthen}
+\usepackage{tikz}
+
+\begin{document}
+\bibliographystyle{IEEEtran}
+\title{2020-GATE-AE}
+\author{AI24BTECH11016 - Jakkula Adishesh Balaji}
+{\let\newpage\relax\maketitle}
+
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+\setlength{\intextsep}{10pt} % Space between text and floats
+\numberwithin{equation}{enumi}
+\numberwithin{figure}{enumi}
+\section{14-26}
+\begin{enumerate}
+	\item
+	Which of the following statements is true about the effect of increase in temperature on dynamic viscosity of water and air, at room temperature?
+		\begin{enumerate}
+			\item It increases for both water and air.
+			\item It increases for water and decreases for air.
+			\item It decreases for water and increases for air.
+			\item It decreases for both water and air.
+		\end{enumerate}
+	\item 
+	Given access to the complete geometry, surface pressure and shear stress distribution over a body placed in a uniform flow, one can estimate
+		\begin{enumerate}
+			\item the moment coefficient, and the force on the body.
+			\item the force coefficient, and the force on the body.
+			\item the moment coefficient, and the moment on the body.
+			\item the force and the moment on the body
+		\end{enumerate}
+	\item
+	A pair of infinitely long, counter-rotating line vortices of the same circulation strength $\tau$ are situated at a distance $h$ apart in a fluid, as shown in the figure. The vortices will
+	%fig%
+	\begin{figure}[H]
+    		\centering
+    		\input{figs/figs1.tex}
+    		\caption{}
+    		\label{36}
+	\end{figure}
+		\begin{enumerate}
+			\item rotate counter-clockwise about the midpoint with the tangential velocity at the line vortex equal to $\frac{\tau}{2\pi h}$
+			\item rotate counter-clockwise about the midpoint with the tangential velocity at the line vortex equal to $\frac{\tau}{4\pi h}$
+			\item translate along $+y$ direction with velocity at the line vortex equal to $\frac{\tau}{2\pi h}$
+			\item translate along $+y$ direction with velocity at the line vortex equal to $\frac{\tau}{4\pi h}$
+		\end{enumerate}
+	\item
+	The streamlines of a steady two dimensional flow through a channel of height $0.2 m$ are plotted in the figure, where $\psi$ is the stream function in $m^{2}/s$. The volumetric flow rate per unit depth is
+	%fig
+	\begin{figure}[H]
+    		\centering
+    		\input{figs/figs2.tex}
+    		\caption{}
+    		\label{36}
+	\end{figure}
+		\begin{enumerate}
+			\item $1.0 m^{2}/s$
+			\item $2.0 m^{2}/s$
+			\item $0.5 m^{2}/s$
+			\item $0.1 m^{2}/s$
+		\end{enumerate}	
+	\item 
+	Which of the following options can result in an increase in the Mach number of a supersonic flow in a duct?
+		\begin{enumerate}
+			\item Increasing the length of the duct
+			\item Adding heat to the flow
+			\item Removing heat from the flow
+			\item Inserting a convergent-divergent section with the same cross-sectional area at its inlet and exit planes
+		\end{enumerate}
+	\item
+	Which one of the following conditions needs to be satisfied from $\phi = Ax^{4} + By^{4} + Cxy^{3}$ to be considered as an Airy's stress function?
+		\begin{enumerate}
+			\item $A - B = 0$
+			\item $A + B = 0$
+			\item $A - C = 0$
+			\item $A + C = 0$
+		\end{enumerate}
+	\item
+	Consider the plane strain field given by $\epsilon_{xx} = Ay^{2} + x$, $\epsilon_{yy} = Ax^{2} + y$, $\gamma_{xy} = Bxy + y$. The relation between $A$ and $B$ needed for this strain field to satisfy the compatibility condition is
+		\begin{enumerate}
+			\item $B = A$
+			\item $B = 2A$
+			\item $B = 3A$
+			\item $B = 4A$
+		\end{enumerate}
+	\item
+	For hyperbolic trajectory of a satellite of mass $m$ having a velocity $V$ at a distance $r$ from the center of the earth ($G$: gravitational constant, $M$: mass of earth), which one of the following relations is true?
+		\begin{enumerate}
+			\item $\frac{1}{2}mV^{2} > \frac{GMm}{r}$
+			\item $\frac{1}{2}mV^{2} < \frac{GMm}{r}$
+			\item $\frac{1}{2}mV^{2} = \frac{GMm}{r}$
+			\item $\frac{1}{2}mV^{2} > \frac{2GMm}{r}$
+		\end{enumerate}	
+	\item 
+	For conventional airplanes, which one of the following is true regarding roll control derivative $C_{l\delta_{r}} = \frac{\partial C_{l}}{\partial \delta_{r}}$ and yaw control derivative $C_{n\delta_{r}} = \frac{\partial C_{n}}{\partial \delta_{r}}$, where $\delta_{r}$ is rudder deflection?
+		\begin{enumerate}
+			\item $C_{l\delta_{r}} > 0$ and $C_{n\delta_{r}} < 0$
+			\item $C_{l\delta_{r}} < 0$ and $C_{n\delta_{r}} > 0$
+			\item $C_{l\delta_{r}} < 0$ and $C_{n\delta_{r}} < 0$
+			\item $C_{l\delta_{r}} > 0$ and $C_{n\delta_{r}} > 0$
+		\end{enumerate}
+	\item
+	The ratio of exit stagnation pressure to inlet stagnation pressure across the rotating impeller of a centrifugal compressor, operating with a closed exit, is?
+		\begin{enumerate}
+			\item 0
+			\item 1
+			\item > 1
+			\item 0.5
+		\end{enumerate}
+	\item
+	Which one of the following is a hypergolic propellant combination used in rocket engines?
+		\begin{enumerate}
+			\item Liquid hydrogen - liquid oxygen
+			\item Unsymmetrical dimethyl hydrazine - nitrogen tetroxide
+			\item Rocket fuel RP-1 - liquid oxygen
+			\item Liquid hydrogen - liquid fluorine
+		\end{enumerate}
+	\item
+	In aircraft engine thermodynamic cycle analysis, \textit{perfectly expanded flow} in the nozzle means that the static pressure in the flow at the nozzle exit is equal to
+		\begin{enumerate}
+			\item the stagnation pressure at the engine inlet.
+			\item the stagnation pressure at the nozzle exit.
+			\item the ambient pressure at the nozzle exit.
+			\item the static pressure at the nozzle inlet.
+		\end{enumerate}
+	\item
+	Three long and slender aluminum bars of identical length are subjected to an axial tensile force. These bars have circular, triangular and rectangular cross sections, with same cross sectional area. If they yield at $F_{circle}$, $F_{triangle}$ and $F_{rectangle}$, respectively, which one of the following is true?
+		\begin{enumerate}
+			\item $F_{circle}$ > $F_{triangle}$ > $F_{rectangle}$
+			\item $F_{circle}$ < $F_{triangle}$ < $F_{rectangle}$
+			\item $F_{triangle}$ > $F_{circle}$ > $F_{rectangle}$
+			\item $F_{circle}$ = $F_{triangle}$ = $F_{rectangle}$
+		\end{enumerate}
+\end{enumerate}
+\end{document}
