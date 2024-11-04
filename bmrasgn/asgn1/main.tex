@@ -1,0 +1,135 @@
+\documentclass{beamer}
+\mode<presentation>
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{advdate}
+\usepackage{adjustbox}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}
+
+\usetheme{Boadilla}
+\usecolortheme{lily}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,right]{author in head/foot}%
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\setbeamertemplate{navigation symbols}{}
+
+% Custom commands
+\providecommand{\nCr}[2]{\ensuremath{\,^{#1}C_{#2}}} % nCr
+\providecommand{\nPr}[2]{\ensuremath{\,^{#1}P_{#2}}} % nPr
+\providecommand{\mbf}{\ensuremath{\mathbf}} % for bold vectors
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}} % Probability function
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}} % Q-function
+\providecommand{\sbrak}[1]{\ensuremath{\left[#1\right]}} % Square brackets
+\providecommand{\lsbrak}[1]{\ensuremath{\left[#1\right.}} % Left square bracket only
+\providecommand{\rsbrak}[1]{\ensuremath{\left.#1\right]}} % Right square bracket only
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}} % Parentheses
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}} % Left parenthesis only
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}} % Right parenthesis only
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}} % Curly brackets
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}} % Left curly bracket only
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}} % Right curly bracket only
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\providecommand{\sgn}{\ensuremath{\mathop{\mathrm{sgn}}}} % Sign function
+\providecommand{\abs}[1]{\ensuremath{\left\vert#1\right\vert}} % Absolute value
+\providecommand{\res}[1]{\ensuremath{\Res\displaylimits_{#1}}} % Residue
+\providecommand{\norm}[1]{\ensuremath{\lVert#1\rVert}} % Norm
+\providecommand{\mtx}[1]{\ensuremath{\mathbf{#1}}} % Matrix in bold
+\providecommand{\mean}[1]{\ensuremath{E\left[ #1 \right]}} % Expected value
+\providecommand{\fourier}{\ensuremath{\overset{\mathcal{F}}{\rightleftharpoons}}} % Fourier transform
+\providecommand{\system}{\ensuremath{\overset{\mathcal{H}}{\longleftrightarrow}}} % System relation
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}} % Decision boundary
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}} % Matrix/vector notation
+\let\vec\mathbf % Make \vec equivalent to \mathbf for bold vectors
+
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+
+\numberwithin{equation}{section}
+
+\title{Matgeo: 4-4.2-21}
+\author{J. Adishesh Balaji \\ AI24BTECH11016}
+
+\date{\today}
+
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+
+\section*{Outline}
+\begin{frame}
+\tableofcontents
+\end{frame}
+\section{Problem}
+\section{Solution}
+\begin{frame}
+\frametitle{Problem Statement}
+%
+Find the direction and normal vectors of the line.
+\begin{align}
+\label{eq:Line equation}
+F &= \frac{9}{5} C + 32
+\end{align}
+\end{frame}
+
+
+\subsection{Direction Vector}
+\begin{frame}
+\frametitle{Direction Vector}
+The equation of line is given by \\
+\begin{align}
+\myvec{C \\ F} &= \myvec{C \\ \frac{9}{5}C+32} + \myvec{0 \\ 32} 
+\end{align}
+which can be compared with \\
+        \begin{align}
+            \vec{x} &= \vec{h} + k\vec{m}
+        \end{align}
+Where $\vec{h}$ is any point on the line and \\
+        \begin{align}
+        \label{eq:directionvec}
+            \vec{m} = \myvec{1 \\ \frac{9}{5}}
+        \end{align}
+is the direction vector
+\end{frame}
+
+\subsection{Normal Vector}
+\begin{frame}
+\frametitle{Normal Vector}
+The normal vector can be found as follows \\
+        \begin{align}
+            \vec{m}^T\vec{n} &= 0 \\
+            \vec{n}^T\vec{x} &= \vec{n}^T\vec{h} + k\vec{n}^T\vec{m} \\
+            \vec{n} &= \myvec{-m \\ 1}
+        \end{align}
+Hence, the normal vector \\ 
+        \begin{align}
+        \label{eq:normalvec}
+            \vec{n} = \myvec{-\frac{9}{5} \\ 1}
+        \end{align}
+The code in /bmrasgn/asgn1/codes/line.py verifies \eqref{eq:directionvec} and \eqref{eq:normalvec}
+\end{frame}
+
+
+
+
+\end{document}
+
