@@ -1,0 +1,98 @@
+\documentclass{beamer}
+\mode<presentation>
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{advdate}
+\usepackage{adjustbox}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}
+
+\usetheme{Boadilla}
+\usecolortheme{lily}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,right]{author in head/foot}%
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\setbeamertemplate{navigation symbols}{}
+
+% Custom commands
+\providecommand{\nCr}[2]{\ensuremath{\,^{#1}C_{#2}}} % nCr
+\providecommand{\nPr}[2]{\ensuremath{\,^{#1}P_{#2}}} % nPr
+\providecommand{\mbf}{\ensuremath{\mathbf}} % for bold vectors
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}} % Probability function
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}} % Q-function
+\providecommand{\sbrak}[1]{\ensuremath{\left[#1\right]}} % Square brackets
+\providecommand{\lsbrak}[1]{\ensuremath{\left[#1\right.}} % Left square bracket only
+\providecommand{\rsbrak}[1]{\ensuremath{\left.#1\right]}} % Right square bracket only
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}} % Parentheses
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}} % Left parenthesis only
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}} % Right parenthesis only
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}} % Curly brackets
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}} % Left curly bracket only
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}} % Right curly bracket only
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\providecommand{\sgn}{\ensuremath{\mathop{\mathrm{sgn}}}} % Sign function
+\providecommand{\abs}[1]{\ensuremath{\left\vert#1\right\vert}} % Absolute value
+\providecommand{\res}[1]{\ensuremath{\Res\displaylimits_{#1}}} % Residue
+\providecommand{\norm}[1]{\ensuremath{\lVert#1\rVert}} % Norm
+\providecommand{\mtx}[1]{\ensuremath{\mathbf{#1}}} % Matrix in bold
+\providecommand{\mean}[1]{\ensuremath{E\left[ #1 \right]}} % Expected value
+\providecommand{\fourier}{\ensuremath{\overset{\mathcal{F}}{\rightleftharpoons}}} % Fourier transform
+\providecommand{\system}{\ensuremath{\overset{\mathcal{H}}{\longleftrightarrow}}} % System relation
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}} % Decision boundary
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}} % Matrix/vector notation
+\let\vec\mathbf % Make \vec equivalent to \mathbf for bold vectors
+
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+
+\numberwithin{equation}{section}
+
+\title{Matgeo: 9-9.2-13}
+\author{J. Adishesh Balaji \\ AI24BTECH11016}
+
+\date{\today}
+
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+
+\section*{Outline}
+\begin{frame}
+\tableofcontents
+\end{frame}
+\section{Problem}
+\section{Solution}
+\begin{frame}
+\frametitle{Problem Statement}
+Find the area of the region bounded by the ellipse 
+	\begin{align}
+		\frac{x^2}{16} + \frac{y^2}{9} &= 1
+	\end{align}
+\end{frame}
+
+	\subsection{Equation of Curve in Matrix Form}
+		\begin{frame}
+		\frametitle{Equation of Curve in Matrix Form}
+			\begin{align}
+				\vec{x}^{T}V\vec{x} + 2\vec{u}^{T}\vec{x} + f = 0
+			\end{align}
+		
