@@ -1,0 +1,78 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{k+kn}{import} \PYG{n+nn}{sys}  \PYG{c+c1}{\PYGZsh{} for path to external scripts}
+\PYG{n}{sys}\PYG{o}{.}\PYG{n}{path}\PYG{o}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}/home/adishesh\PYGZhy{}balaji/github/matgeo/codes/CoordGeo\PYGZsq{}}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} path to my scripts}
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{numpy.linalg} \PYG{k}{as} \PYG{n+nn}{LA}
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib.pyplot} \PYG{k}{as} \PYG{n+nn}{plt}
+
+\PYG{c+c1}{\PYGZsh{} local imports}
+\PYG{k+kn}{from} \PYG{n+nn}{line.funcs} \PYG{k+kn}{import} \PYG{o}{*}
+\PYG{k+kn}{from} \PYG{n+nn}{triangle.funcs} \PYG{k+kn}{import} \PYG{o}{*}
+\PYG{k+kn}{from} \PYG{n+nn}{conics.funcs} \PYG{k+kn}{import} \PYG{n}{circ\PYGZus{}gen}
+
+\PYG{c+c1}{\PYGZsh{} Function to read points from the txt file}
+\PYG{k}{def} \PYG{n+nf}{read\PYGZus{}points\PYGZus{}from\PYGZus{}file}\PYG{p}{(}\PYG{n}{filename}\PYG{p}{):}
+    \PYG{n}{c\PYGZus{}values} \PYG{o}{=} \PYG{p}{[]}
+    \PYG{n}{f\PYGZus{}values} \PYG{o}{=} \PYG{p}{[]}
+
+    \PYG{k}{with} \PYG{n+nb}{open}\PYG{p}{(}\PYG{n}{filename}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}r\PYGZsq{}}\PYG{p}{)} \PYG{k}{as} \PYG{n}{file}\PYG{p}{:}
+        \PYG{k}{for} \PYG{n}{line} \PYG{o+ow}{in} \PYG{n}{file}\PYG{p}{:}
+            \PYG{c+c1}{\PYGZsh{} Split the line by comma and convert to float}
+            \PYG{n}{c}\PYG{p}{,} \PYG{n}{f} \PYG{o}{=} \PYG{n+nb}{map}\PYG{p}{(}\PYG{n+nb}{float}\PYG{p}{,} \PYG{n}{line}\PYG{o}{.}\PYG{n}{strip}\PYG{p}{()}\PYG{o}{.}\PYG{n}{split}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{},\PYGZsq{}}\PYG{p}{))}
+            \PYG{n}{c\PYGZus{}values}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{c}\PYG{p}{)}
+            \PYG{n}{f\PYGZus{}values}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{f}\PYG{p}{)}
+
+    \PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{c\PYGZus{}values}\PYG{p}{),} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{f\PYGZus{}values}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Function to plot the line and its normal vector}
+\PYG{k}{def} \PYG{n+nf}{plot\PYGZus{}line\PYGZus{}and\PYGZus{}normal}\PYG{p}{(}\PYG{n}{c\PYGZus{}values}\PYG{p}{,} \PYG{n}{f\PYGZus{}values}\PYG{p}{):}
+    \PYG{c+c1}{\PYGZsh{} Plot the line as a dotted line}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{c\PYGZus{}values}\PYG{p}{,} \PYG{n}{f\PYGZus{}values}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}\PYGZdl{}F = \PYGZbs{}frac}\PYG{l+s+si}{\PYGZob{}9\PYGZcb{}\PYGZob{}5\PYGZcb{}}\PYG{l+s+s1}{C + 32\PYGZdl{}\PYGZsq{}}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}blue\PYGZsq{}}\PYG{p}{,} \PYG{n}{linestyle}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}dotted\PYGZsq{}}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Calculate the midpoint of the line}
+    \PYG{n}{midpoint\PYGZus{}index} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{c\PYGZus{}values}\PYG{p}{)} \PYG{o}{//} \PYG{l+m+mi}{2}
+    \PYG{n}{c\PYGZus{}mid} \PYG{o}{=} \PYG{n}{c\PYGZus{}values}\PYG{p}{[}\PYG{n}{midpoint\PYGZus{}index}\PYG{p}{]}
+    \PYG{n}{f\PYGZus{}mid} \PYG{o}{=} \PYG{n}{f\PYGZus{}values}\PYG{p}{[}\PYG{n}{midpoint\PYGZus{}index}\PYG{p}{]}
+
+    \PYG{c+c1}{\PYGZsh{} Midpoint as the starting point for the normal vector}
+    \PYG{n}{A\PYGZus{}mid} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([}\PYG{n}{c\PYGZus{}mid}\PYG{p}{,} \PYG{n}{f\PYGZus{}mid}\PYG{p}{])}
+
+    \PYG{c+c1}{\PYGZsh{} Direction vector (slope = 9/5)}
+    \PYG{n}{m} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{9}\PYG{o}{/}\PYG{l+m+mi}{5}\PYG{p}{])}
+
+    \PYG{c+c1}{\PYGZsh{} Normal vector (slope = \PYGZhy{}5/9)}
+    \PYG{n}{n} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{9}\PYG{o}{/}\PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{])}
+
+    \PYG{c+c1}{\PYGZsh{} Plot the main line using parametric form (starting at A = [0, 32])}
+    \PYG{n}{main\PYGZus{}line\PYGZus{}points} \PYG{o}{=} \PYG{n}{line\PYGZus{}dir\PYGZus{}pt}\PYG{p}{(}\PYG{n}{m}\PYG{p}{,} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{32}\PYG{p}{]),} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{50}\PYG{p}{,} \PYG{l+m+mi}{50}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{main\PYGZus{}line\PYGZus{}points}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{p}{:],} \PYG{n}{main\PYGZus{}line\PYGZus{}points}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{p}{:],} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}blue\PYGZsq{}}\PYG{p}{,} \PYG{n}{linestyle}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}dotted\PYGZsq{}}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Plot the normal vector emerging from the midpoint}
+    \PYG{n}{normal\PYGZus{}points} \PYG{o}{=} \PYG{n}{line\PYGZus{}dir\PYGZus{}pt}\PYG{p}{(}\PYG{n}{n}\PYG{p}{,} \PYG{n}{A\PYGZus{}mid}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{20}\PYG{p}{,} \PYG{l+m+mi}{20}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} Adjust the range of the normal vector as needed}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{normal\PYGZus{}points}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{p}{:],} \PYG{n}{normal\PYGZus{}points}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{p}{:],} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}Normal Vector\PYGZsq{}}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}red\PYGZsq{}}\PYG{p}{,} \PYG{n}{linestyle} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}dotted\PYGZsq{}}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Set labels}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}C (Celsius)\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}F (Fahrenheit)\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{()}
+
+    \PYG{c+c1}{\PYGZsh{} Set limits}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlim}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{60}\PYG{p}{,} \PYG{l+m+mi}{110}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylim}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{70}\PYG{p}{,} \PYG{l+m+mi}{220}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Add grid}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{axhline}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}black\PYGZsq{}}\PYG{p}{,} \PYG{n}{linewidth}\PYG{o}{=}\PYG{l+m+mf}{0.5}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{axvline}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}black\PYGZsq{}}\PYG{p}{,} \PYG{n}{linewidth}\PYG{o}{=}\PYG{l+m+mf}{0.5}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Show the plot}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{gca}\PYG{p}{()}\PYG{o}{.}\PYG{n}{set\PYGZus{}aspect}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}equal\PYGZsq{}}\PYG{p}{,} \PYG{n}{adjustable}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}box\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{()}
+
+\PYG{c+c1}{\PYGZsh{} Main code execution}
+\PYG{k}{if} \PYG{n+nv+vm}{\PYGZus{}\PYGZus{}name\PYGZus{}\PYGZus{}} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}\PYGZus{}\PYGZus{}main\PYGZus{}\PYGZus{}\PYGZdq{}}\PYG{p}{:}
+    \PYG{n}{filename} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}line\PYGZus{}points.txt\PYGZdq{}}
+    \PYG{n}{c\PYGZus{}values}\PYG{p}{,} \PYG{n}{f\PYGZus{}values} \PYG{o}{=} \PYG{n}{read\PYGZus{}points\PYGZus{}from\PYGZus{}file}\PYG{p}{(}\PYG{n}{filename}\PYG{p}{)}
+    \PYG{n}{plot\PYGZus{}line\PYGZus{}and\PYGZus{}normal}\PYG{p}{(}\PYG{n}{c\PYGZus{}values}\PYG{p}{,} \PYG{n}{f\PYGZus{}values}\PYG{p}{)}
+
+\end{Verbatim}

@@ -21,8 +21,24 @@
 \headcommand {\beamer@subsectionentry {0}{3}{2}{5}{Normal Vector}}
 \headcommand {\slideentry {3}{2}{1}{5/5}{Normal Vector}{0}}
 \headcommand {\beamer@framepages {5}{5}}
-\headcommand {\beamer@partpages {1}{5}}
-\headcommand {\beamer@subsectionpages {5}{5}}
-\headcommand {\beamer@sectionpages {3}{5}}
-\headcommand {\beamer@documentpages {5}}
-\headcommand {\gdef \inserttotalframenumber {5}}
+\headcommand {\slideentry {3}{2}{2}{6/6}{Normal Vector}{0}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\slideentry {3}{2}{2}{6/7}{Normal Vector}{0}}
+\headcommand {\beamer@framepages {6}{7}}
+\headcommand {\slideentry {3}{2}{2}{6/8}{Normal Vector}{0}}
+\headcommand {\beamer@framepages {6}{8}}
+\headcommand {\slideentry {3}{2}{3}{9/9}{Normal Vector}{0}}
+\headcommand {\beamer@framepages {9}{9}}
+\headcommand {\slideentry {3}{2}{3}{9/10}{Normal Vector}{0}}
+\headcommand {\beamer@framepages {9}{10}}
+\headcommand {\slideentry {3}{2}{3}{9/11}{Normal Vector}{0}}
+\headcommand {\beamer@framepages {9}{11}}
+\headcommand {\slideentry {3}{2}{3}{9/12}{Normal Vector}{0}}
+\headcommand {\beamer@framepages {9}{12}}
+\headcommand {\slideentry {3}{2}{3}{9/13}{Normal Vector}{0}}
+\headcommand {\beamer@framepages {9}{13}}
+\headcommand {\beamer@partpages {1}{13}}
+\headcommand {\beamer@subsectionpages {5}{13}}
+\headcommand {\beamer@sectionpages {3}{13}}
+\headcommand {\beamer@documentpages {13}}
+\headcommand {\gdef \inserttotalframenumber {13}}

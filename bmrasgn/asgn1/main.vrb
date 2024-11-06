@@ -1,4 +1,6 @@
-import sys  # for path to external scripts
+\frametitle{Python code to plot graph}
+\begin{mintedbox}{Python}[break at=.8\textheight]
+	import sys  # for path to external scripts
 sys.path.insert(0, '/home/adishesh-balaji/github/matgeo/codes/CoordGeo')  # path to my scripts
 import numpy as np
 import numpy.linalg as LA
@@ -13,7 +15,7 @@ from conics.funcs import circ_gen
 def read_points_from_file(filename):
     c_values = []
     f_values = []
-    
+
     with open(filename, 'r') as file:
         for line in file:
             # Split the line by comma and convert to float
@@ -74,3 +76,4 @@ if __name__ == "__main__":
     c_values, f_values = read_points_from_file(filename)
     plot_line_and_normal(c_values, f_values)
 
+\end{mintedbox}
