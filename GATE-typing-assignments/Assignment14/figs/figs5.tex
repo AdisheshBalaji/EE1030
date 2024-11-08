@@ -1,0 +1,21 @@
+
+\begin{circuitikz}[scale = 0.5]
+\tikzstyle{every node}=[font=\normalsize]
+\draw [line width=1.1pt, ->, >=Stealth] (-1.25,3.25) -- (-1.25,15.75);
+\draw [line width=1.1pt, ->, >=Stealth] (-1.25,3.25) -- (12.25,3.25);
+\draw [line width=1.1pt, short] (-1.25,3.25) -- (2.5,9.5);
+\draw [line width=1.1pt, short] (2.5,9.5) -- (5,9.5);
+\draw [line width=1.1pt, short] (5,9.5) -- (11.25,3.25);
+\draw [line width=1.1pt, dashed] (2.5,9.5) -- (2.5,3.25);
+\draw [line width=1.1pt, dashed] (5,9.5) -- (5,3.25);
+\draw [line width=1.1pt, dashed] (2.5,9.25) -- (2.5,9.5);
+\draw [line width=1.1pt, dashed] (2.5,9.5) -- (-1.25,9.5);
+\node [font=\normalsize] at (-1,2.75) {0};
+\node [font=\normalsize] at (-1.75,3.5) {0};
+\node [font=\normalsize] at (2.5,2.75) {4};
+\node [font=\normalsize] at (5,3) {6};
+\node [font=\normalsize] at (11.25,3) {12};
+\node [font=\normalsize] at (-2,9.5) {20};
+\node [font=\normalsize] at (4,2) {Time (hour)};
+\node [font=\normalsize, rotate around={90:(0,0)}] at (-4.25,9) {Rainfall Intensity (mm/hour)};
+\end{circuitikz}
