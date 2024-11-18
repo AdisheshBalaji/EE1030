@@ -1,0 +1,420 @@
+\documentclass[final]{article}
+
+
+% if you need to pass options to natbib, use, e.g.:
+%     \PassOptionsToPackage{numbers, compress}{natbib}
+% before loading neurips_2024
+
+
+% ready for submission
+\usepackage{neurips_2024}
+
+
+% to compile a preprint version, e.g., for submission to arXiv, add add the
+% [preprint] option:
+%     \usepackage[preprint]{neurips_2024}
+
+
+% to compile a camera-ready version, add the [final] option, e.g.:
+%     \usepackage[final]{neurips_2024}
+
+
+% to avoid loading the natbib package, add option nonatbib:
+%    \usepackage[nonatbib]{neurips_2024}
+
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{xcolor}  
+\usepackage{amsmath} % colors
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+
+\title{Methods To Compute eigen values and eigen vectors}
+\author{
+	Jakkula Adishesh Balaji \\
+	AI24BTECH11016 \\ 
+	}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\section{Abstract}
+Applications of mathematics sometimes encounter the following equations: What are the singularities of $A-\lambda I$ where $\lambda$ is a parameter? What is the behaviour of the sequence of vectors ${{A^j X_0}}_{j = 0} ^ \infty$. Solutions for problems in different disciplines such as engineering, economics and physics can involve ideas related to these equations. \\
+\section{Significance of eigen values}
+    Let $A$ be an $n \times n$ matrix and $X$ be a vector of dimension $n$. We must find scalars $\lambda$ for which there exists vectors such that 
+    \begin{align}
+                AX &= \lambda X
+    \end{align}
+    The linear transformation $T(X) = AX$ \textbf{scales} the vector $X$ by a factor of lambda. Here \\
+    $X$ is the \textbf{eigen vector} that corresponds to the \textbf{eigen value} $\lambda$ \\
+    The standard equation is
+    \begin{align}
+            (A - \lambda I)X = 0
+    \end{align}
+    A trivial way to solve this would be take the determinant on both sides and equate $|A-\lambda I|$ to zero. But we will not ponder upon this method since it is very computationally expensive and numerically unstable for large matrices. \\
+    We will also look at the significance of complex eigen values: \\
+    Consider the eigen vector corresponding to the eigen values $\lambda = a + bi$ , the eigen vector will be \textbf{scaled} by a factor of $||\lambda||$ and rotated by an angle of $\tan^{-1}\left( \frac{b}{a} \right)$. Complex eigen values have interesting real-life applications such as in mechanical vibrations in which the real part represents the damping rate and frequency of the oscillations is described by the complex part. This can also be extended to \textbf{RLC Circuits}
+\paragraph{The rapid computation of eigen values stands as one of the most transformative innovations of the 20th century, revolutionizing science and technology, we will now explore some efficient eigen-value computing methods}
+    \section{Power Method}
+        The power method is used to compute the \textbf{dominant eigen value} of a matrix and its corresponding eigen-vector\\
+        \subsection{Algorithm}
+        Consider the matrix $A$ for which we must calculate the eigen values \\
+        Initialize a random vector $x_0$ and normalize it $\frac{x_0}{|x_0|}$ to prevent overflow \\
+        Compute
+        \begin{align}
+                y_k &= Ax_{k-1} \\
+                x_k &= \frac{y_k}{||y_k||}
+        \end{align}
+        Estimate the dominant eigenvalue $\lambda_k$ using the \textbf{Rayleigh quotient:}.\\
+        \begin{align}
+            \lambda_k = x_k^{T}Ax_k
+        \end{align}
+        Monitor changes in $|\lambda_k - \lambda_{k-1}|$, if it is less than $\epsilon$ stop and return the corresponding eigen vector $\lambda_k$ and the corresponding eigen vector $x_k$
+        \subsection{Time complexity}
+        Each multiplication with the matrix $A$ with $x_{k-1}$ takes time $\mathcal{O}(n^2)$ and normalizing the vector $y_k$ takes time $\mathcal{O}(n)$. For $k$ iterations, the time complexity is roughly $\mathcal{O}(kn^2)$
+        \subsection{Pseudocode}
+        \begin{algorithm}
+        \begin{algorithmic}
+            \caption{Power Method}
+            \State initialize $\mathbf{x} = \mathbf{x_0}$
+            \State normalize $\mathbf{x_0} = \frac{\mathbf{x_0}}{||\mathbf{x_0}||}$
+            \For{$i=1$ to $k$}
+                \State $\mathbf{y} = \mathbf{A} \cdot \mathbf{x}$
+                \State $ \lambda = \frac{\mathbf{x}^T \cdot \mathbf{y}}{\mathbf{x}^T \cdot \mathbf{x}} $
+                \State $\mathbf{x} = \frac{\mathbf{y}}{\mathbf{||y||}}$
+            \EndFor
+        \State \textbf{return} $\lambda, \mathbf{x}$
+        \end{algorithmic}
+        \end{algorithm}
+        \subsection{Memory complexity}
+        Storing the matrix $A$ requires $\mathcal{O}(n^2)$ memory//
+        Storing the vector $v$ requires $\mathcal{O}(n)$ memory //
+        Hence, total memory complexity is $\mathcal{O}(n^2)$
+
+        \subsection{Pros} 
+        The algorithm is simple to implement, requiring only matrix multiplication. It is very efficient for large, sparse matrices and guarantees to converge to the dominant eigen value. \\
+        Since we only have to store $x_k$ and $A$ it is extremely memory efficient \\
+        \subsection{Cons} 
+        The number of iterations depends largely on the choice of the initial vector $x_0$ \\ 
+        The convergence rate can be slow since it depends on $|\frac{\lambda_1}{\lambda_2|}|$ where $\lambda_2$ is the second most dominant eigen value \\ 
+        It only computes a single eigen vector
+    \section{Jacobi method}
+    The Jacobi method is an iterative algorithm used to find all eigenvalues and eigenvectors of a symmetric matrix. It is based on the idea of repeatedly applying rotations (Jacobi rotations) to zero out the off-diagonal elements of the matrix, transforming it into a diagonal matrix whose diagonal entries are the eigenvalues
+        \subsection{Algorithm:}
+        %. 
+\begin{itemize}
+    \item Start with $A^{(0)} = A$ and identity matrix $V = I$.
+    \item At each iteration, find the largest off-diagonal element $A_{pq}$ in $A^{(k)}$ and compute the Jacobi rotation matrix $P^{(k)}$, which is used to zero out $A_{pq}$.
+    \item Update the matrix: 
+    \[
+    A^{(k+1)} = P^{(k)\top} A^{(k)} P^{(k)}.
+    \]
+    \item The eigenvectors accumulate as:
+    \[
+    V^{(k+1)} = V^{(k)} P^{(k)}.
+    \]
+    \item Repeat until all off-diagonal elements are sufficiently close to zero.
+\end{itemize}
+
+\textbf{Jacobi Rotation:}
+The Jacobi rotation matrix $P^{(k)}$ is constructed as:
+\[
+P^{(k)} = \begin{bmatrix}
+1 & & & & \\
+& \ddots & & & \\
+& & c & -s & \\
+& & s & c & \\
+& & & & \ddots \\
+\end{bmatrix}
+\]
+where $c = \cos(\theta)$ and $s = \sin(\theta)$, with $\theta$ chosen to zero out the largest off-diagonal element $A_{pq}$. The angle $\theta$ is computed as:
+\[
+\theta = \frac{1}{2} \tan^{-1} \left( \frac{2A_{pq}}{A_{pp} - A_{qq}} \right).
+\]
+
+        \subsection{Time Complexity} 
+        Per iteration: Each Jacobi rotation involves searching for the largest off-diagonal element, which takes $\mathcal{O}(n^2-n)$ and then performing the rotation which also takes $\mathcal{O}(n^2)$ time.\\
+        Overall complexity would be $\mathcal{O}(n^3)$ since it usually requires $n$ iterations 
+        \subsection{Pseudocode}
+            \begin{algorithm}
+            \caption{Jacobi Method}
+            \begin{algorithmic}
+                \State Initialize $\mathbf{x_0}$ with zeros
+                \State Set iteration counter $ k = 0 $
+
+                \Repeat
+                \For{each row $ i = 1 $ to $ n $}
+                    \State $ \text{sum} = 0 $
+                        \For{each column $ j = 1 $ to $ n $, $ j \neq i $}
+                \State $ \text{sum} = \text{sum} + A[i][j] \cdot x_j^{(k)} $
+                \EndFor
+        \State $ x_i^{(k+1)} = \frac{b_i - \text{sum}}{A[i][i]} $
+    \EndFor
+
+    \State Calculate the norm $ \| x^{(k+1)} - x^{(k)} \| $
+    \If{norm < $ \epsilon $}
+        \State \textbf{Exit the loop}
+    \EndIf
+    \State Increment iteration counter $ k $
+\Until{convergence or $ k \geq k_{\text{max}} $}
+
+        \end{algorithmic}
+    \end{algorithm}
+        \subsection{Memory complexity}
+        Storing the matrix $A$ requires $\mathcal{O}(n^2)$ memory \\
+        Storing the vector solution $v_i$ requires $\mathcal{O}(n)$ memory \\
+        Temporary storage for next iteration $v_{i+1}$ requires $\mathcal{O}(n)$ memory
+         \subsection{Pros} 
+        Simple to implement for symmetric matrices. \\
+        Highly precise for small to moderate sized matrices. \\
+        \subsection{Cons}
+        Slow for large matrices \\
+        Requires high number of iterations \\
+        Limited to symmetric matrices
+    \section{Lanczos Algorithm}
+    \subsection{Algorithm}
+The Lanczos algorithm is an iterative method for approximating eigenvalues and eigenvectors of large, symmetric matrices. It reduces a matrix $A \in \mathbb{R}^{n \times n}$ to a tridiagonal matrix $T_k$, which approximates the eigenvalues of $A$. Given a normalized initial vector $v_1$, the algorithm iterates as follows:
+
+\begin{itemize}
+    \item Set $\beta_0 = 0$, $v_0 = 0$.
+    \item For $j = 1, 2, \dots$:
+    \begin{align*}
+        w_j &= A v_j - \beta_{j-1} v_{j-1}, \\
+        \alpha_j &= v_j^\top w_j, \\
+        w_j &= w_j - \alpha_j v_j, \\
+        \beta_j &= \|w_j\|, \quad v_{j+1} = \frac{w_j}{\beta_j}.
+    \end{align*}
+\end{itemize}
+
+The matrix $T_k$ formed from $\alpha_j$ and $\beta_j$ is:
+\[
+T_k = \begin{bmatrix}
+\alpha_1 & \beta_1 & 0 & \cdots & 0 \\
+\beta_1 & \alpha_2 & \beta_2 & \cdots & 0 \\
+0 & \beta_2 & \alpha_3 & \cdots & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & 0 & \cdots & \alpha_k
+\end{bmatrix}.
+\]
+The eigenvalues of $T_k$ approximate the largest (or smallest) eigenvalues of $A$.
+
+
+\subsection{Time Complexity} Each iteration requires $\mathcal{O}(\text{nnz}(A))$ operations for sparse matrices, where $\text{nnz}(A)$ is the number of non-zero elements. The overall complexity is $\mathcal{O}(k \cdot \text{nnz}(A))$ for $k$ iterations.
+
+\subsection{Pseudocode}
+\begin{algorithm}
+\caption{Lanczos Algorithm for Eigenvalue Computation}
+\begin{algorithmic}
+
+\State Chose an initial random vector $v_1$ and normalize it \\
+\State $v_1 = \frac{v_1}{||v_1||}$
+\State Set $ \beta_0 = 0 $
+\State Set $ \alpha_0 = 0 $
+
+\For{ $i = 1$ to $k$}
+    \State Compute $w_i = Av_i$
+    \State Subtract the component along $v_{i-1}$ 
+    \State $w^{\prime}_i = w_i - \beta_{i-1}v_{i-1}$
+    \State Compute $\alpha_i$ as $\alpha_i = v_i^{T}w^{\prime}_i$
+    \State $\beta_i = ||w^{\prime\prime}_k||$
+    \State \textbf{if} $ \beta_i \neq 0 $\\
+    \hspace{1 cm} continue;
+    \State \textbf{else} \\
+    \hspace{1 cm} break
+    $v_{k+1} = \frac{w^{\prime\prime}_k}{\beta_k}$
+\EndFor
+\State \textbf{Return:} Tridiagonal of of $T$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Memory Complexity}
+Storing the matrix $A$ requires $\mathcal{O}(n^2)$ memory \\
+Storing $k+1$ vectors of size $n$ requires $\mathcal{O}(kn)$ memory \\
+Storing the tridiagonal matrix requires $\mathcal{O}(k)$ memory
+Hence total memory complexity is $\mathcal{O}(n^2+kn)$
+
+\subsection{Pros} Efficient for large, sparse matrices; low memory usage; good convergence for extreme eigenvalues.
+
+\subsection{Cons} Numerical instability without reorthogonalization; works only for symmetric matrices; struggles with degenerate eigenvalues.
+        \section{ QR-Algorithm}
+        One of the most crucial innovations of the 20th century. It is currently the most widely used method for computing eigen-values for a general matrix. \textbf{We will be using this algorithm with the householder reflections method for computing the eigen values}.\\
+        QR algorithm is an iterative algorithm that decomposes the matrix $A$ into the product of an orthogonal matrix $Q$ and an upper triangular matrix $R$, then updating the matrix by multiplying $R$ and $Q$. Mathematically, \\
+        \begin{align}
+            A_k &= QR \\
+            A_{k+1} &= RQ
+        \end{align}
+            \textbf{Pseudocode}
+            \begin{algorithm}
+                \caption{QR method}
+                \begin{algorithmic}
+                    \For{ $i = 1$ to $k$}
+                        \State decompose $A_i$ as $Q_i$ and $R_i$
+                        \State set $A_{i+1} = R_i \cdot Q_i$ 
+                    \EndFor
+                    \State \textbf{return:} $A_k$
+                \end{algorithmic}
+            \end{algorithm}
+        After several iterations, the matrix $A_n$ converges to an upper triangular matrix. The diagonal entries of this matrix are the eigenvalues of the original matrix $A$. We will now explore some methods for QR decomposition \\
+        
+
+        \subsection{Givens Rotations}
+            Used when the matrix is sparse or has a special structure. It works by zeroing out individual elements by simple 2D rotations. For each element $i$, $j$ a rotation matrix $G(i, j, \theta)$ is applied. 
+            \subsubsection{Pseudocode}
+            \begin{algorithm}
+                \caption{Given's rotations}
+                \begin{algorithmic}
+                    \For{$j=1$ to $n-2$}
+                        \For{$i=n$ to $j+2$}
+                            \State Compute Givens rotation for T[i, j]:
+                            \State $r = sqrt(T[j,j]^{2} + T[i, j]^2)$
+                            \State $ c = \frac{T[j, j]}{r}$
+                            \State $s = \frac{T[i, j]}{r}$
+                            \State Construct the matrix
+                            \State $G=I$
+                            \State    $G[j, j] = c, G[j, i] = s$ \\ 
+                                      $G[i, j] = -s, G[i, i] = c$ \\
+                            \State Apply Givens rotation
+                            \State $ T = G^T \cdot T \cdot G$
+                            \State Update $Q = Q\cdot G$
+                        \EndFor
+                    \EndFor
+                    \State \textbf{return:} $T$, $Q$
+                \end{algorithmic}
+            \end{algorithm}
+            \subsubsection{Memory Complexity}
+                Storing the matrix $ A $ requires $ \mathcal{O}(n^2) $ memory \\
+Storing the vector $ v $ for each Givens rotation requires $ \mathcal{O}(n) $ memory \\
+Storing the Givens rotation matrix requires $ \mathcal{O}(n) $ memory \\
+Hence, the total memory complexity is $ \mathcal{O}(n^2) $
+
+        \subsection{Gram-Schmidt} 
+            One of the oldest algorithms to perform QR decompositions. It is relatively simple and is accurate for small matrices. In the Gram-Schmidt process, you take each column of matrix 
+$A$, project it onto the previously computed orthogonal vectors, and subtract the projection to make the vector orthogonal to the earlier ones. This method is faster for smaller matrices or when high numerical stability is not required. 
+            \subsubsection{Pseudocode}
+            \begin{algorithm}
+                \begin{algorithmic}
+                    \State Initialize Q as a null matrix
+                    \State Initialize R as a null matrix
+                    \For{$j=1$ to $n$}
+                        $v = A_j$ column vector of A
+                        \For{$i=1$ to $j-1$}
+                            \State $R[i, j] = Q_i^{T} \cdot v$
+                            \State $v -= R[i,j] \cdot Q_i$
+                        \EndFor
+                        \State $R[j,j] = ||v||$
+                        \State $Q_j = v/R[j,j]$
+                    \EndFor
+                \return $Q$, $R$
+                \end{algorithmic}
+            \end{algorithm}
+            \subsubsection{Memory Complexity}
+            Storing the matrix $ A $ requires $ \mathcal{O}(n^2) $ memory \\
+Storing the orthogonal vectors requires $ \mathcal{O}(kn) $ memory \\
+Storing the coefficients for the projections requires $ \mathcal{O}(n) $ memory \\
+Hence, the total memory complexity is $ \mathcal{O}(n^2) $
+
+    \subsection{Householder algorithm} 
+    The householder algorithm is a numerically stable and efficient method for computing the QR factorization of a matrix $ A $. It involves a series of orthogonal transformations (Householder reflections) that reduce the matrix $ A $ to upper triangular form.
+\subsubsection{Basic Idea}
+
+For a given matrix $ A \in \mathbb{R}^{m \times n} $, the goal is to compute an orthogonal matrix $ Q \in \mathbb{R}^{m \times m} $ and an upper triangular matrix $ R \in \mathbb{R}^{m \times n} $ such that:
+
+\[
+A = QR
+\]
+
+At each step, a Householder transformation is applied to zero out the elements below the diagonal in one column of the matrix.
+
+\subsubsection{Householder Transformation}
+
+A Householder transformation $ H $ is defined as:
+
+\[
+H = I - 2 \frac{\mathbf{v} \mathbf{v}^T}{\mathbf{v}^T \mathbf{v}}
+\]
+\subsubsection{Memory Complexity}
+Storing the matrix $ A $ requires $ \mathcal{O}(n^2) $ memory \\
+Storing the Householder vectors requires $ \mathcal{O}(n) $ memory \\
+Storing the orthogonal matrix $ Q $ requires $ \mathcal{O}(n^2) $ memory \\
+Hence, the total memory complexity is $ \mathcal{O}(n^2) $
+
+where $ \mathbf{v} $ is a vector chosen such that the transformation zeros out specific elements below the diagonal of a column in the matrix. For a given vector $ \mathbf{x} $, the vector $ \mathbf{v} $ is computed as:
+
+\[
+\mathbf{v} = \mathbf{x} + \text{sign}(x_1) \|\mathbf{x}\|_2 \mathbf{e}_1
+\]
+
+where $ \mathbf{e}_1 $ is the first standard basis vector.
+\section*{Pseudocode}
+
+\textbf{Input:}  
+Matrix $A$ of size $n \times n$.
+
+\textbf{Output:}  
+Orthogonal matrix $Q$ of size $n \times n$.  
+Upper triangular matrix $R$ of size $n \times n$.
+
+\begin{algorithmic}
+\State $Q \gets I_n$ 
+\State $R \gets A$ 
+
+\For{$k = 1$ to $n-1$} 
+    \State $x \gets R[k:n, k]$ 
+    \State $\|x\| \gets \sqrt{\sum x_i^2}$ 
+    \State Define $e_1$ as a vector of size $n-k+1$ with $e_1[1] = 1$ and other entries 0
+    \State $v \gets x + \text{sign}(x_1) \cdot \|x\| \cdot e_1$ 
+    \State $v \gets v / \|v\|$ 
+    \State $H \gets I - 2 \cdot v \cdot v^\top$ 
+    \State $R[k:n, k:n] \gets H \cdot R[k:n, k:n]$ 
+    \State Expand $H$ to size $n \times n$ (fill with identity values outside the submatrix)
+    \State $Q \gets Q \cdot H^\top$ 
+\EndFor
+
+\State \textbf{Output:} $Q, R$
+\end{algorithmic}
+
+
+1. Start with the matrix $ A \in \mathbb{R}^{m \times n} $.
+2. For each column $ k $ of $ A $, construct a Householder matrix $ H_k $ that zeros out the elements below the diagonal in that column.
+3. Apply the transformation $ A \leftarrow H_k A $ to update the matrix.
+4. Continue this process for each column, resulting in a matrix that is upper triangular.
+5. The product of all the Householder matrices $ Q = H_1 H_2 \dots H_n $ is orthogonal, and the resulting matrix is upper triangular.
+
+\subsubsection{Advantages}
+
+\begin{itemize}
+    \item \textbf{Numerical Stability}: The Householder algorithm is more numerically stable than methods like Gram-Schmidt since it does not suffer from computational overhead. In the Gram-Schmidt method, the computation of each column vector depends on all its preceding vectors. So, although the time complexity of both the methods is the same, householder algorithm doesnt suffer from this computational overhead and is stable for larger matrices.
+    \item \textbf{Efficiency for Dense Matrices}: It requires fewer operations than Givens rotations and is well-suited for dense matrices.
+    \item \textbf{Orthogonality}: The orthogonal matrix $ Q $ is obtained as the product of orthogonal Householder transformations.
+\end{itemize}
+
+\subsubsection{Disadvantages}
+
+\begin{itemize}
+    \item \textbf{Not Suitable for Sparse Matrices}: For sparse matrices, applying Householder transformations can destroy the sparsity structure, leading to inefficiency.
+\end{itemize}
+
+\section{Conclusion}
+The Householder algorithm is a highly efficient and numerically stable method for performing QR factorization, and it plays a crucial role in modern numerical linear algebra. Due to its robustness, particularly in dealing with large and dense matrices, it is widely regarded as one of the most reliable techniques for QR decomposition.
+In the context of the software assignment, I employed \textbf{QR decomposition with Householder transformations} for computing the eigenvalues of a given matrix
+
+\section*{References}
+\begin{enumerate}
+    \item \textit{3Blue1Brown:Essence of linear algebra}. 
+        \href{https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab}{Link}.
+    \item Wikipedia - \textit{Eigenvalues Algorithm}
+        \href{https://en.wikipedia.org/wiki/Eigenvalue_algorithm}{Link}.
+        \item Yang, \textit{Applied Numerical Methods Using MATLAB}
+\end{enumerate}
+
+            
+        
+    \end{document}

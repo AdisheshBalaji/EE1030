@@ -1,0 +1,38 @@
+\contentsline {section}{\numberline {1}Abstract}{2}{section.1}%
+\contentsline {section}{\numberline {2}Significance of eigen values}{2}{section.2}%
+\contentsline {paragraph}{The rapid computation of eigen values stands as one of the most transformative innovations of the 20th century, revolutionizing science and technology, we will now explore some efficient eigen-value computing methods}{2}{section*.2}%
+\contentsline {section}{\numberline {3}Power Method}{2}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Algorithm}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Time complexity}{3}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Pseudocode}{3}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Memory complexity}{3}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Pros}{3}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Cons}{3}{subsection.3.6}%
+\contentsline {section}{\numberline {4}Jacobi method}{3}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Algorithm:}{4}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Time Complexity}{4}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Pseudocode}{4}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Memory complexity}{5}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Pros}{5}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Cons}{5}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Lanczos Algorithm}{5}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Algorithm}{5}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Time Complexity}{5}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Pseudocode}{5}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Memory Complexity}{5}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Pros}{6}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Cons}{6}{subsection.5.6}%
+\contentsline {section}{\numberline {6} QR-Algorithm}{6}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Givens Rotations}{7}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Pseudocode}{7}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Memory Complexity}{7}{subsubsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.2}Gram-Schmidt}{7}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Pseudocode}{7}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}Memory Complexity}{8}{subsubsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.3}Householder algorithm}{8}{subsection.6.3}%
+\contentsline {subsubsection}{\numberline {6.3.1}Basic Idea}{8}{subsubsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.2}Householder Transformation}{8}{subsubsection.6.3.2}%
+\contentsline {subsubsection}{\numberline {6.3.3}Memory Complexity}{8}{subsubsection.6.3.3}%
+\contentsline {subsubsection}{\numberline {6.3.4}Advantages}{9}{subsubsection.6.3.4}%
+\contentsline {subsubsection}{\numberline {6.3.5}Disadvantages}{9}{subsubsection.6.3.5}%
+\contentsline {section}{\numberline {7}Conclusion}{9}{section.7}%
