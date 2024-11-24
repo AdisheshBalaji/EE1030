@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.8.5)  8 NOV 2024 11:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.8.5)  24 NOV 2024 10:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1677,17 +1677,14 @@ LaTeX Font Info:    Trying to load font information for OT1+txr on input line 3
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
-) (./main.aux
-
-LaTeX Warning: Label `36' multiply defined.
-
-)
+) (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 37.
 LaTeX Font Info:    Trying to load font information for OML+txmi on input line 
 37.
- (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omltxmi.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    ... okay on input line 37.
@@ -1910,138 +1907,72 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 -dist/fonts/enc/dvips/base/8r.enc}
 
 ] (./figs/figs3.tex)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [2]
-! Missing number, treated as zero.
-<to be read again> 
-                   A
-l.80 ...lane and there is no ground water effect.]
-                                                  
-? 
-! Illegal unit of measure (pt inserted).
-<to be read again> 
-                   A
-l.80 ...lane and there is no ground water effect.]
-                                                  
-? 
-
-! Package calc Error: `A' invalid at this point.
-
-See the calc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.80 ...lane and there is no ground water effect.]
-                                                  
-? 
-! Extra }, or forgotten \endgroup.
-\@gnewline ...\unskip \reserved@e {\reserved@f #1}
-                                                  \nobreak \hfil \break \fi 
-l.80 ...lane and there is no ground water effect.]
-                                                  
-? 
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--82
-
- []
-
-(./figs/figs4.tex
-! Undefined control sequence.
-l.67 ...{Angle of internal friction = $32 \degrees
-                                                  $};
-? 
-! Undefined control sequence.
-l.72 ...{Angle of internal friction = $25 \degrees
-                                                  $};
-? 
-) (./figs/figs5.tex) (./tables/table.tex
-! Misplaced \noalign.
-\hline ->\noalign 
-                  {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
-l.14     \hline
-               
-? 
-! You can't use `\hrule' here except with leaders.
-\hline ->\noalign {\ifnum 0=`}\fi \hrule 
-                                         \@height \arrayrulewidth \futurelet...
-l.14     \hline
-               
-? 
-! Missing number, treated as zero.
-<to be read again> 
-                   \futurelet 
-l.14     \hline
-               
-? 
-! Illegal unit of measure (pt inserted).
-<to be read again> 
-                   \futurelet 
-l.14     \hline
-               
-? 
-)
-Overfull \hbox (111.87946pt too wide) in paragraph at lines 113--115
+Overfull \hbox (91.57246pt too wide) in paragraph at lines 78--82
 [] []$ 
  []
 
 
-! LaTeX Error: \begin{enumerate} on input line 49 ended by \end{document}.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.116 \end{document}
-                    
+ [2]
+(./figs/figs4.tex
+! Undefined control sequence.
+l.67 ...{Angle of internal friction $= 32 \degrees
+                                                  $};
 ? 
-(./main.aux)
+! Undefined control sequence.
+l.72 ...{Angle of internal friction $= 25 \degrees
+                                                  $};
+? 
+) (./figs/figs5.tex)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3]
+(./tables/table.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 114--118
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4]
+[5] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 0E934877C1E7D1589F7C764C0D981161;68.
-! You can't use `\end' in internal vertical mode.
-\enddocument ...cument/end}\deadcycles \z@ \@@end 
-                                                  
-l.116 \end{document}
-                    
-? 
 
-! LaTeX Error: \begin{enumerate} on input line 49 ended by \end{document}.
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.116 \end{document}
-                    
-? 
-! Missing } inserted.
-<inserted text> 
-                }
-l.116 \end{document}
-                    
-? 
-)
-*
-! Emergency stop.
-<*> 
-    
-End of file on the terminal!
-
- 
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
+(rerunfilecheck)             After:  0E934877C1E7D1589F7C764C0D981161;68.
+ ) 
 Here is how much of TeX's memory you used:
- 53080 strings out of 474222
- 1257303 string characters out of 5748734
+ 53097 strings out of 474222
+ 1257517 string characters out of 5748734
  1942975 words of memory out of 5000000
- 74500 multiletter control sequences out of 15000+600000
- 621611 words of font info for 167 fonts, out of 8000000 for 9000
+ 74501 multiletter control sequences out of 15000+600000
+ 621929 words of font info for 168 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 109i,12n,109p,1194b,1050s stack positions out of 10000i,1000n,20000p,200000b,200000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 109i,10n,109p,1194b,1036s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
+w/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a
+.pfb>
+Output written on main.pdf (5 pages, 53603 bytes).
+PDF statistics:
+ 109 PDF objects out of 1000 (max. 8388607)
+ 73 compressed objects within 1 object stream
+ 24 named destinations out of 1000 (max. 500000)
+ 109 words of extra memory for PDF output out of 10000 (max. 10000000)
+
